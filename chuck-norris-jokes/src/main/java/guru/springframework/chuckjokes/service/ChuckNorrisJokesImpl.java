@@ -1,7 +1,5 @@
 package guru.springframework.chuckjokes.service;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.stereotype.Service;
 
 import guru.springframework.norris.chuck.ChuckNorrisQuotes;
@@ -11,11 +9,11 @@ public class ChuckNorrisJokesImpl implements ChuckNorrisJokes {
 
 	private ChuckNorrisQuotes quotes;
 	
-	
-	@PostConstruct
-	public void init() {
-		quotes = new ChuckNorrisQuotes();
+
+	public ChuckNorrisJokesImpl(ChuckNorrisQuotes quotes) {
+		this.quotes = quotes;
 	}
+
 
 	@Override
 	public String getRandomChuckNorrisJoke() {
